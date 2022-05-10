@@ -16,9 +16,14 @@
     <%= f.password_field :password, autocomplete: "new-password", class: "form-control" %>
   </div>
 
-  <div class="field mb-3">
+  <div class="field mb-2">
     <%= f.label :password_confirmation, class:"form-label" %><br />
     <%= f.password_field :password_confirmation, autocomplete: "new-password", class: "form-control" %>
+  </div>
+
+  <div class="form-text mb-3">
+    Already have account? Please
+    <%= link_to "Login",  new_user_session_path, class:"text-decoration-none" %>
   </div>
 
   <div class="actions mb-5">
@@ -26,7 +31,4 @@
   </div>
 <% end %>
 
-<span>
-  Already have account?
-  <%= link_to "Login",  new_user_session_path, class:"text-decoration-none" %>
-</span>
+
