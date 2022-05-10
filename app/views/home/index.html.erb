@@ -1,3 +1,8 @@
 <div class="d-flex justify-content-center align-items-center">
-    <h1 class="fs-3">Homepage</h1>
+    <div class="">
+        <h1 class="fs-3">Homepage</h1>
+        <% if current_user %>
+                <p class="fs-4">Hello kamu adalah <%= current_user.role %> </p> 
+        <% end %>
+    </div>
 </div>
