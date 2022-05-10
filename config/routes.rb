@@ -1,6 +1,9 @@
 Rails.application.routes.draw do
   get '/accounts', to: "accounts#index"
-  devise_for :users
+  devise_for :users,  controllers: {
+    sessions: 'users/sessions',
+    registrations: 'users/registrations'
+  }
 
   get "/articles", to: "articles#index"
 
