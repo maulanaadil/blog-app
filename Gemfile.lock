@@ -109,6 +109,8 @@ GEM
     factory_girl_rails (4.9.0)
       factory_girl (~> 4.9.0)
       railties (>= 3.0.0)
+    faker (2.20.0)
+      i18n (>= 1.8.11, < 2)
     globalid (1.0.0)
       activesupport (>= 5.0)
     headless (2.3.1)
@@ -270,6 +272,7 @@ DEPENDENCIES
   debug
   devise (~> 4.8)
   factory_girl_rails
+  faker
   headless
   importmap-rails
   jbuilder

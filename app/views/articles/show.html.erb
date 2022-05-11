@@ -1,0 +1,13 @@
+<div class="mb-3">
+    <%= link_to "Back to articles", :back, class: "" %>
+</div>
+
+<div id="single-article-content">
+  <div class="row">
+    <div class="card col-sm-offset-3 px-3 py-3">
+      <div class="article-by mb-3">Posted by <%= @article.user.email %></div>
+      <h3 class="mb-2"><%= @article.title %></h3>
+      <p><%= @article.content %></p>
+    </div>
+  </div>
+</div>
