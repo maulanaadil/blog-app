@@ -72,3 +72,10 @@ group :test do
 end
 
 gem "devise", "~> 4.8"
+gem 'rspec-rails', '~> 3.6'
+gem 'factory_girl_rails'
+gem 'rails-controller-testing'
+gem 'headless'
+gem 'capybara'
+gem 'poltergeist'
+gem 'database_cleaner'
