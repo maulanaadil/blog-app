@@ -1,4 +1,4 @@
-<div class="card mb-5 mt-3 shadow-sm bg-body rounded" id=<%= articles_path(article.id) %>>
+<div class="card mb-5 mt-3 shadow-sm bg-body rounded single-article-card" id=<%= articles_path(article.id) %>>
     <div class="card-body">
         <div class="mb-3">
             <blockquote class="blockquote mb-4">
@@ -10,8 +10,9 @@
         </div>  
         <div class="article-content">
             <p><%= article.content %></p>
-            <a href="/articles/#">
-            <%= link_to "Read More", article_path(article.id), class: "" %>
+            <div class="read-more">
+                <%= link_to "Read More", article_path(article.id) %>
+            </div>
       </div>
     </div>
 </div>
