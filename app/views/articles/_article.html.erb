@@ -1,0 +1,16 @@
+<div class="card mb-5 mt-3 shadow-sm bg-body rounded">
+    <div class="card-body">
+        <div class="mb-3">
+            <blockquote class="blockquote mb-4">
+                <q class="fs-4 mb-4"><%= truncate(article.title, :length => 60) %></q>
+            </blockquote>
+            <figcaption class="blockquote-footer d-flex align-items-center">
+                <p class="my-0">Articles by <%= article.user.email %></p>
+            </figcaption>
+        </div>  
+        <div class="article-content">
+            <p><%= article.content %></p>
+            <%= link_to "I'm interested", articles_path(article.id), class: 'interested' %>
+      </div>
+    </div>
+</div>

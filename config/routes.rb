@@ -9,6 +9,14 @@ Rails.application.routes.draw do
     get '/users/sign_out' => 'devise/sessions#destroy'
   end
 
+  resources :articles do
+    collection do
+      get 'hobby'
+      get 'study'
+      get 'team'
+    end
+  end
+
   get "/articles", to: "articles#index"
 
   root to: "home#index"
