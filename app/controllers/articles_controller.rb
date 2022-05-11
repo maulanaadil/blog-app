@@ -5,4 +5,7 @@ class ArticlesController < ApplicationController
         @articles = Article.limit(10)
     end
 
+    def show
+        @article = Article.find(params[:id])
+    end
 end    
