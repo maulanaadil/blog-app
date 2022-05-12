@@ -1,0 +1,27 @@
+<div class="d-flex justify-content-center align-items-center">
+    <div class="card bg-info me-5">
+        <div class="card-body" id="hobby">
+            <h5 class="card-title">Category Hobby</h5>
+        </div>
+        <div class="card-footer d-flex justify-content-center">
+            <%= link_to "More info", hobby_articles_path, class: "btn btn-info" %>
+        </div>
+    </div>
+    <div class="card bg-warning me-5">
+        <div class="card-body" id="studi">
+            <h5 class="card-title">Category Study</h5>
+        </div>
+        <div class="card-footer d-flex justify-content-center">
+            <%= link_to "More info", study_articles_path, class: "btn btn-warning" %>
+        </div>
+    </div>
+    <div class="card bg-danger">
+        <div class="card-body" id="team">
+            <h5 class="card-title">Category Team</h5>
+        </div>
+        <div class="card-footer d-flex justify-content-center">
+            <%= link_to "More info", team_articles_path, class: "btn btn-danger" %>
+         </div>
+    </div>
+</div>
+
