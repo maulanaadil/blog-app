@@ -2,7 +2,7 @@ class ArticlesController < ApplicationController
     before_action :require_user_logged_in!
 
     def index
-        @articles = Article.limit(10)
+        @articles = Article.limit(10).order('created_at DESC')
     end
 
     def show
@@ -11,7 +11,7 @@ class ArticlesController < ApplicationController
 
     def new
         @article = Article.new
-        @categories = Category.ids
+        @category = Category.ids
     end
 
     def create
