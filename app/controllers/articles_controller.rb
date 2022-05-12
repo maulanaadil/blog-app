@@ -9,6 +9,21 @@ class ArticlesController < ApplicationController
         @article = Article.find(params[:id])
     end
 
+    def new
+        @article = Article.new
+        @categories = Category.ids
+    end
+
+    def create
+        @article = Article.new(article_params)
+        if @article.save
+            redirect_to articles_path, notice: "Tweet was scheduled successfully"
+        else
+            render :new 
+        end  
+    end
+    
+
     def hobby
         articles_for_branch(params[:action])
     end
@@ -30,5 +45,9 @@ class ArticlesController < ApplicationController
     def get_articles
         Article.limit(30)
     end
+
+    def article_params
+        params.require(:article).permit(:content, :title, :category_id).merge(user_id: current_user.id)
+    end   
     
 end    

@@ -1,0 +1,35 @@
+<%= link_to "Back", :back, class: "btn btn-outline-primary my-3" %>
+<%= form_with model: article, local: true, data: { turbo: false } do |form| %>
+    <%= render "components/form-errors", form: form %>
+    <div class="mb-3">
+       <%= form.label :title, class: "form-label" %>
+       <%= form.text_field  :title, 
+                    maxlength: 100, 
+                     minlength: 5,
+                    required: true, 
+                    placeholder: 'E.g World war 3 is doom', 
+                    class: 'form-control' %>
+    </div>
+
+    <div class="mb-3">
+        <%= form.label :content, class: "form-label" %>
+        <%= form.text_area :content, 
+                  rows: 6,
+                  required: true, 
+                  minlength: 20,
+                  maxlength: 1000,
+                  placeholder: 'Describe what you are looking for. E.g. specific interests, expertise level, etc.', 
+                  class: 'form-control' %>
+    </div>
+
+    <div class="mb-3">
+        <%= form.label :category_id %>
+        <%= form.collection_select :category_id, Category.order(:name), :id, :name, {},{ class: "form-control mb-2" } %>
+    </div>
+
+    <%= form.button "Submit", method: :patch, class: "btn btn-primary" %>
+
+    <% if form.object.persisted? %>
+        <%= link_to "Delete", form.object, form: {data: {turbo_confirm: 'Are you sure?'}}, class: "btn btn-outline-danger" %>
+    <% end %>
+<% end %>
