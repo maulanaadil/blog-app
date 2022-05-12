@@ -5,7 +5,6 @@ RSpec.feature "Visit single article", :type => :feature do
   let(:user) { create(:user) }
   let(:article) { create(:article) }
 
-#   TODO: Masih bingung gimana cara ngetest element didalem children
   scenario "User goes to a single article from the home page", js: true do
     article
     user

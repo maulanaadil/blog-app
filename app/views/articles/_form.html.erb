@@ -27,7 +27,7 @@
         <%= form.collection_select :category_id, Category.order(:name), :id, :name, {},{ class: "form-control mb-2" } %>
     </div>
 
-    <%= form.button "Submit", method: :patch, class: "btn btn-primary" %>
+    <%= form.button "Submit", method: :patch, class: "btn btn-primary submit-button" %>
 
     <% if form.object.persisted? %>
         <%= link_to "Delete", form.object, form: {data: {turbo_confirm: 'Are you sure?'}}, class: "btn btn-outline-danger" %>
