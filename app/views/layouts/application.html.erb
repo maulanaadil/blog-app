@@ -12,12 +12,13 @@
     <%= javascript_importmap_tags %>
   </head>
 
-  <body>
+  <body class="bg-light">
     <%= render partial: "components/navbar" %>
 
     <div class="container">
       <%= render partial: "components/flash" %>
       <%= yield %>
     </div>
+    
   </body>
 </html>
