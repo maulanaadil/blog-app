@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
   get '/accounts', to: "accounts#index"
+<<<<<<< HEAD
   
   get '/accounts/:id', to: 'accounts#show',  as: 'user'
   delete '/accounts/:id', to: 'accounts#destroy'
@@ -8,6 +9,12 @@ Rails.application.routes.draw do
 
   get '/accounts/:id/edit', to: 'accounts#edit', as: 'user_edit_role'
 
+=======
+  get '/accounts/:id', to: "accounts#destroy", as: 'user'
+  delete '/accounts/:id', to: "accounts#destroy"
+
+    
+>>>>>>> Add feture user management by admin
   devise_for :users,  controllers: {
     sessions: 'users/sessions',
     registrations: 'users/registrations'
