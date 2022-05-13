@@ -1,0 +1,9 @@
+<% if @user %>
+    <div class="jumbotron">
+        <h2 class="display-4">
+            <%= @user.email %>
+        </h2>
+
+        <%= render 'form', user: @user %>
+    </div>
+<% end %>
