@@ -10,7 +10,7 @@
       <p><%= @article.content %></p>
       <div class="d-flex">
         <%= link_to "Edit Article", edit_article_path(@article), class: "btn btn-primary me-2" %>
-        <%= button_to 'Delete', article_path(@article), method: :delete, class: "btn btn-outline-danger ms-2" %>
+        <%= button_to 'Delete', article_path(@article), method: :delete, class: "btn btn-outline-danger ms-2 button-delete" %>
       </div>
     </div>
   </div>
