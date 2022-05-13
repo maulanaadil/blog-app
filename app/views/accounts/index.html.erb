@@ -1,7 +1,3 @@
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
->>>>>>> 91b79c3f4d1c6426302fcbdabc27e9dd60edb8d3
 <div class="mb-5">
   <h1 class="mb-3">Accounts</h1>
 
@@ -29,38 +25,3 @@
     </table>
   <% end %>
 </div>
-<<<<<<< HEAD
-=======
-<h1>Accounts#index</h1>
-<p>Find me in app/views/accounts/index.html.erb</p>
-
-<% if user_signed_in? %>
-  <table class="table table-striped table-bordered table-hover">
-    <thead class="thead-dark">
-    <tr>
-        <th>Email</th>
-        <th>Role</th>
-        <th>Created At</th>
-        <th></th>
-      </tr>
-    </thead>
-
-    <tbody>
-      <% @user.each do |user| %>
-        <tr>
-            <td><%= user.email %></td>
-            <td><%= user.role %></td>
-            <td><%= user.created_at %></td> 
-            <% if user.role == 'user' %>
-                <td><%= link_to 'Delete', user_path(user), method: :delete, data: { turbo: false }, class: "btn btn-outline-danger btn-sm" %></td> 
-            <% else %>
-                <td></td>
-            <% end %>
-        </tr>
-      <% end %>
-    </tbody>
-  </table>
-<% end %>
->>>>>>> Add feture user management by admin
-=======
->>>>>>> 91b79c3f4d1c6426302fcbdabc27e9dd60edb8d3
