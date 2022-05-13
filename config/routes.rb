@@ -1,9 +1,11 @@
 Rails.application.routes.draw do
   get '/accounts', to: "accounts#index"
-  get '/accounts/:id', to: "accounts#destroy", as: 'user'
-  delete '/accounts/:id', to: "accounts#destroy"
+  
+  get '/accounts/:id', to: 'accounts#show',  as: 'user'
+  delete '/accounts/:id', to: 'accounts#destroy'
+  put '/accounts/:id', to: 'accounts#edit'
+  patch '/accounts/:id', to: 'accounts#edit'
 
-    
   devise_for :users,  controllers: {
     sessions: 'users/sessions',
     registrations: 'users/registrations'
