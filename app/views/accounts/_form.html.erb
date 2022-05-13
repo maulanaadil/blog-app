@@ -1,0 +1,21 @@
+<%= form_with(model: user, local: true) do |form| %>
+    <% if user.errors.any? %>
+        <div>
+        <ul>
+            <% user.errors.full_messages.each do |message| %>
+            <li><%= message %></li>
+            <% end %>
+        </ul>
+        </div>
+    <% end %>
+
+    <div>
+        <%= form.select :role, options_for_select([["User", 'user'], ["Moderator", 'moderator']]), {},  class: "form-select" %>
+    </div>
+
+    <br/>
+    <div class="d-flex flex-row">
+        <%= form.submit class:'btn btn-secondary me-2' %>
+        <%= button_to 'Back', accounts_path, method: :get, class:"btn btn-dark", type: 'button' %>
+    </div> 
+<% end %>
