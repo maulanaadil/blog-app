@@ -7,18 +7,18 @@
     <div class="collapse navbar-collapse" id="navbarText">
       <ul class="navbar-nav me-auto mb-2 mb-lg-0">
         <li class="nav-item">
-          <%= link_to "Home", root_path, class: "nav-link" %>
+          <%= link_to "Home", root_path, class: "nav-link", id: 'home' %>
         </li>
         <li class="nav-item">
-          <%= link_to "Articles", articles_path, class: "nav-link" %>
+          <%= link_to "Articles", articles_path, class: "nav-link", id: 'articles' %>
         </li>
          <% if current_user %>
           <% if current_user.admin? || current_user.moderator? %>
-              <li class="nav-item">
-                <%= link_to "Accounts", accounts_path, class: "nav-link" %>
+              <li class="nav-item" >
+                <%= link_to "Accounts", accounts_path, class: "nav-link", id: 'accounts' %>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="#">Settings</a>
+                <a class="nav-link" href="#", id = 'settings'>Settings</a>
               </li>
           <% end %>
         <% end %>  
@@ -28,14 +28,14 @@
           <%= current_user.email %>
         </span>
         <span class="navbar-text">
-          <%= link_to "Sign Out", destroy_user_session_path, 'data-turbo-method': :delete, class: "btn btn-outline-danger ms-3" %>
+          <%= link_to "Sign Out", destroy_user_session_path, 'data-turbo-method': :delete, class: "btn btn-outline-danger ms-3", id: 'sign-out' %>
         </span>
         <% else %>
         <span class="navbar-text">
-          <%= link_to "Sign In", new_user_session_path, class: "nav-link" %>
+          <%= link_to "Sign In", new_user_session_path, class: "nav-link", id: 'sign-in' %>
         </span>
         <span class="navbar-text">
-          <%= link_to "Sign Up", new_user_registration_path, class: "nav-link" %>
+          <%= link_to "Sign Up", new_user_registration_path, class: "nav-link", id: 'sign-up' %>
         </span>
       <% end %>
     </div>

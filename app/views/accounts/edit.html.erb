@@ -1,4 +1,4 @@
-<% if current_user.admin? %>
+<% if current_user.admin? || current_user.moderator? %>
     <% if @user %>
         <div class="jumbotron">
             <%= button_to 'Back', accounts_path, method: :get, class:"btn btn-outline-primary my-3", type: 'button' %>
