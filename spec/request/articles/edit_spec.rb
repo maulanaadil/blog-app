@@ -9,20 +9,16 @@ RSpec.describe "edit", :type => :request do
     end
   end
 
-# TODO: 
-# Ini bingung gimana ngemocking article sebelum testingnya berjalan
-# jadi si get /articles/(id_article)/edit itu harus ada id_articlenya
-# nah maka itu sebelumnya harus create dulu article(biar ada id) agar
-# ke link endpoint edit tersebut. Tapi gimana caranya gitu hehe
+  context 'signed in user' do
+    let(:user) { create(:user) }
+    let(:category) { create(:category) }
+    before(:each) { login_as user }
 
-#   context 'signed in user' do
-#     let(:user) { create(:user) }
-#     before(:each) { login_as user }
-
-#     it 'renders a edit template' do
-#       get '/articles/1?1/edit'
-#       expect(response).to render_template(:edit)
-#     end
-#   end
+    it 'renders a edit template' do
+      article = create(:article, user: user, category: category)
+      get edit_article_path(article)
+      expect(response).to render_template(:edit)
+    end
+  end
 
 end
