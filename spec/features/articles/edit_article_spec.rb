@@ -1,4 +1,5 @@
 require "rails_helper"
+require 'pry'
 
 RSpec.feature "Edit a article", :type => :feature do
   let(:user) { create(:user) }
@@ -16,11 +17,10 @@ RSpec.feature "Edit a article", :type => :feature do
     fill_in 'article[content]', with: 'a'
     # select 'category', from: 'article[category_id]' 
 
-    # TODO: 
-    # Dia gamau ngetrigger button submit jadi 
-    # dia nggak mau nge expect article-title
-    # karena article tersebut belom diedit
-    find('button.submit-button').click
+    
+    click_on 'Submit'
+    find('.submit-button').click
+    visit articles_path
 
     expect(page).to have_selector('.article-title')
   end
