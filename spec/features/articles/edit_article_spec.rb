@@ -1,5 +1,4 @@
 require "rails_helper"
-require 'pry'
 
 RSpec.feature "Edit a article", :type => :feature do
   let(:user) { create(:user) }
@@ -16,7 +15,6 @@ RSpec.feature "Edit a article", :type => :feature do
     fill_in 'article[title]', with: 'a'
     fill_in 'article[content]', with: 'a'
     # select 'category', from: 'article[category_id]' 
-
     
     click_on 'Submit'
     find('.submit-button').click
