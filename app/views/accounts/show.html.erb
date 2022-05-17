@@ -1,14 +1,10 @@
 <% if current_user.role != 'user' %>
     <% if @user %>
         <%= button_to 'Back', accounts_path, method: :get, class:"btn btn-outline-primary my-3" %>
-        <div class="jumbotron d-flex flex-row align-items-center justify-content-between">
+        <div id="show-detail-acount" class="jumbotron d-flex flex-row align-items-center justify-content-between">
             <div>
-                <h2 class="display-4">
-                    <%= @user.email %>
-                </h2>
-                <h4>
-                    <%= @user.role %>
-                </h4>
+                <h2 class="display-4"><%= @user.email %></h2>
+                <h4><%= @user.role %></h4>
             </div>
             <div class="d-flex flex-row">
                 <% if @user.role != 'admin' %>
@@ -16,7 +12,7 @@
                         <%= button_to 'Edit', user_edit_role_path, method: :get, class: "btn btn-primary me-2" %>
                     <% end %>
                     <% if current_user.admin? %>
-                        <%= button_to 'Delete', user_path(@user), method: :delete, class: "btn btn-danger me-2", form: {data: {turbo_confirm: 'Are you sure?'}} %>
+                        <%= button_to 'Delete', user_path(@user), method: :delete, class: "btn btn-danger me-2 button-delete", form: {data: {turbo_confirm: 'Are you sure?'}} %>
                     <% end %>
                 <% end %>
             </div>

@@ -16,7 +16,7 @@
         <tbody>
         <% @user.each do |user| %>
             <tr>
-                <td><%= link_to user.email, user, class:"text-decoration-none" %></td>
+                <td><%= link_to user.email, user, class:"text-decoration-none", id: 'email' %></td>
                 <td><%= user.role %></td>
                 <td><%= user.created_at %></td>
                 <td><%= user.updated_at %></td> 
