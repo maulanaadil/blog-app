@@ -5,7 +5,7 @@ RSpec.describe "show", :type => :request do
   context 'unsigned' do
     let(:user) { create(:user, role: 'user') }
     
-    it 'renders a edit accounts page' do
+    it 'unsinged user try to edit user role' do
         get user_edit_role_path(user)
         expect(response).to redirect_to(new_user_session_path)
     end
@@ -22,7 +22,7 @@ RSpec.describe "show", :type => :request do
     end
   end
 
-  context 'signed in user admin' do
+  context 'signed in user moderator' do
     moderator = FactoryGirl.create(:user, role: 'moderator')
     let(:user) { create(:user, role: 'user') }
     before(:each) { login_as moderator }
@@ -33,7 +33,7 @@ RSpec.describe "show", :type => :request do
     end
   end
 
-  context 'signed in user admin' do
+  context 'signed in user user' do
     user_sign = FactoryGirl.create(:user, role: 'user')
     let(:user) { create(:user, role: 'user') }
     before(:each) { login_as user_sign }

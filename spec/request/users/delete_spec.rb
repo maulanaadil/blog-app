@@ -5,7 +5,7 @@ RSpec.describe "show", :type => :request do
   context 'unsigned' do
     let(:user) { create(:user, role: 'user') }
     
-    it 'renders a edit accounts page' do
+    it 'unsinged user try to delete user' do
         delete user_path(user)
         expect(response).to redirect_to(new_user_session_path)
     end
@@ -16,29 +16,29 @@ RSpec.describe "show", :type => :request do
     let(:user) { create(:user, role: 'user') }
     before(:each) { login_as admin }
     
-    it 'update a details accounts page' do
+    it 'admin try to delete user' do
         delete user_path(user)
         expect(response).not_to render_template(:show)
         expect(response).to redirect_to(accounts_path)
     end
   end
 
-  context 'signed in user admin' do
+  context 'signed in user moderator' do
     moderator = FactoryGirl.create(:user, role: 'moderator')
     let(:user) { create(:user, role: 'user') }
     before(:each) { login_as moderator }
     
-    it 'update a details accounts page' do
+    it 'moderator try to delete user' do
         delete user_path(user)
         expect(response).to redirect_to(accounts_path)
     end
   end
 
-  context 'signed in user admin' do
+  context 'signed in user user' do
     let(:user) { create(:user, role: 'user') }
     before(:each) { login_as user }
     
-    it 'update a details accounts page' do
+    it 'user try to delete user' do
         delete user_path(user)
         expect(response).to redirect_to(root_path)
     end
