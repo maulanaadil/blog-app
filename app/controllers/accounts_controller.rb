@@ -13,15 +13,23 @@ class AccountsController < ApplicationController
   end
 
   def destroy 
-    @user.destroy
-    redirect_to accounts_path, notice: "User was successfully destroyed."
+    if current_user.role == 'admin'
+      @user.destroy
+      redirect_to accounts_path, notice: "User was successfully destroyed."
+    elsif current_user.role == 'moderator'
+      redirect_to accounts_path
+    else
+      redirect_to root_path
+    end
   end
 
   def update
-    if @user.update(user_params)
-      redirect_to @user, notice: "User was successfully updated."
-    else
-      render :edit
+    if current_user.role != 'user'
+      if @user.update(user_params)
+        redirect_to @user, notice: "User was successfully updated."
+      else
+        render :edit
+      end
     end
   end
 
