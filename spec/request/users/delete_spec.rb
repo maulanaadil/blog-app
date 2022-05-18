@@ -1,7 +1,7 @@
 require 'rails_helper'
 include Warden::Test::Helpers
 
-RSpec.describe "show", :type => :request do
+RSpec.describe "delete", :type => :request do
   context 'unsigned' do
     let(:user) { create(:user, role: 'user') }
     
