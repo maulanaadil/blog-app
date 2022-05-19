@@ -17,6 +17,14 @@ def seed_users
   end
 end
 
+def seed_user_admin
+  User.create(
+    email: "admin@rails.com",
+    role: 'admin',
+    password: '123456',
+    password_confirmation: '123456',
+  )
+end  
 
 def seed_categories
   hobby = ['Arts', 'Crafts', 'Sports', 'Sciences', 'Collecting', 'Reading', 'Other']
@@ -52,3 +60,8 @@ def seed_articles
     end
   end
 end
+
+seed_users
+seed_user_admin
+seed_categories
+seed_articles
