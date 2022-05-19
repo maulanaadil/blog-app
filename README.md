@@ -1,24 +1,54 @@
-# README
+# Project
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+[Blog.app](https://blog-app-rails-v1.herokuapp.com/)
 
-Things you may want to cover:
+### Clone the repository
 
-* Ruby version
+```shell
+git clone https://github.com/maulanaadil/blog-app.git
+cd blog-app
+```
 
-* System dependencies
+### Check your Ruby version
 
-* Configuration
+```shell
+ruby -v
+```
 
-* Database creation
+The ouput should start with something like `ruby 3.0.2`
 
-* Database initialization
+If not, install the right ruby version using [rvm](https://www.ruby-lang.org/en/news/2021/07/07/ruby-3-0-2-released/) (it could take a while):
 
-* How to run the test suite
+```shell
+rvm install 3.0.2
+```
 
-* Services (job queues, cache servers, search engines, etc.)
+### Install dependencies
 
-* Deployment instructions
+Using [Bundler](https://github.com/bundler/bundler):
 
-* ...
+```shell
+bundle install
+```
+
+### Initialize the database
+
+```shell
+rails db:migrate db:seed
+```
+
+## Serve
+
+```shell
+rails s
+```
+## Testing
+
+```shell
+bundle exec rspec spec
+```
+
+### Spesific testing
+```shell
+bundle exec rpec spec/{file_test.rb}
+```
