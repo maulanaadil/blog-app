@@ -24,7 +24,7 @@ rvm install 3.0.2
 Using [Bundler](https://github.com/bundler/bundler):
 
 ```shell
-bundle install
+bundler install
 ```
 
 ### Initialize the database
