@@ -1,24 +1,50 @@
-# README
+### Clone the repository
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+```shell
+git clone https://github.com/maulanaadil/blog-app.git
+cd blog-app
+```
 
-Things you may want to cover:
+### Check your Ruby version
 
-* Ruby version
+```shell
+ruby -v
+```
 
-* System dependencies
+The ouput should start with something like `ruby 3.0.2`
 
-* Configuration
+If not, install the right ruby version using [rvm](https://www.ruby-lang.org/en/news/2021/07/07/ruby-3-0-2-released/) (it could take a while):
 
-* Database creation
+```shell
+rvm install 3.0.2
+```
 
-* Database initialization
+### Install dependencies
 
-* How to run the test suite
+Using [Bundler](https://github.com/bundler/bundler):
 
-* Services (job queues, cache servers, search engines, etc.)
+```shell
+bundler install
+```
 
-* Deployment instructions
+### Initialize the database
 
-* ...
+```shell
+rails db:migrate db:seed
+```
+
+## Server
+
+```shell
+rails s
+```
+## Testing
+Testing tool using [Rspec](https://rspec.info/):
+```shell
+bundle exec rspec spec
+```
+
+### Spesific testing
+```shell
+bundle exec rpec spec/{file_test.rb}
+```
