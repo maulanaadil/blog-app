@@ -72,7 +72,6 @@ class ArticlesController < ApplicationController
         @article = Article.find(params[:id])
     end
 
-
     def check_for_cancel
         if params[:commit] == "Cancel"
             redirect_to my_page_path
