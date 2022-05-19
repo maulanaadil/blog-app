@@ -60,8 +60,3 @@ def seed_articles
     end
   end
 end
-
-seed_users
-seed_user_admin
-seed_categories
-seed_articles
