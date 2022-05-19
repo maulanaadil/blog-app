@@ -39,7 +39,7 @@ rails db:migrate db:seed
 rails s
 ```
 ## Testing
-
+Testing tool using [Rspec](https://rspec.info/):
 ```shell
 bundle exec rspec spec
 ```
