@@ -33,7 +33,7 @@ bundler install
 rails db:migrate db:seed
 ```
 
-## Serve
+## Server
 
 ```shell
 rails s
