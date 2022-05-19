@@ -1,7 +1,3 @@
-# Project
-
-[Blog.app](https://blog-app-rails-v1.herokuapp.com/)
-
 ### Clone the repository
 
 ```shell
