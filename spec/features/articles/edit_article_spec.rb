@@ -24,7 +24,7 @@ RSpec.feature "Edit a article", :type => :feature do
   end
 
   scenario 'user creates a edit article that is not his own article', js: true do
-    
+    # TODO: Masukin feature testnya disini
   end
 
 end
