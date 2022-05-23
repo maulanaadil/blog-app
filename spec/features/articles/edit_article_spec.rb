@@ -2,10 +2,12 @@ require "rails_helper"
 
 RSpec.feature "Edit a article", :type => :feature do
   let(:user) { create(:user) }
-  let(:article) { create(:article) }
+  let(:another_user) { create(:user) }
+  let(:article) { create(:article, user: user) }
+  let(:another_article) { create(:article, user: another_user) }
   before(:each) { sign_in user }
 
-  scenario 'user creates a edit article', js: true do
+  scenario 'user try to edit his article', js: true do
     article
     visit articles_path
     
@@ -14,7 +16,6 @@ RSpec.feature "Edit a article", :type => :feature do
     
     fill_in 'article[title]', with: 'a'
     fill_in 'article[content]', with: 'a'
-    # select 'category', from: 'article[category_id]' 
     
     click_on 'Submit'
     find('.submit-button').click
@@ -23,4 +24,15 @@ RSpec.feature "Edit a article", :type => :feature do
     expect(page).to have_selector('.article-title')
   end
 
+  scenario 'user try to edit not his article', js: true do
+    article
+    another_article
+    visit articles_path
+
+    binding.pry
+    
+    find('a[href="/articles/2"]').click
+    
+    expect(page).not_to have_selector('.btn btn-primary me-2')
+  end
 end
