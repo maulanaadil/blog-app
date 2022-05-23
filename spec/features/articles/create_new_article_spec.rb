@@ -12,7 +12,7 @@ RSpec.feature "Create a new article", :type => :feature do
     create(:category, name: 'category', branch: 'testing')
     fill_in 'article[title]', with: 'a' * 20
     fill_in 'article[content]', with: 'a' * 20
-    # select 'category', from: 'article[category_id]' 
+    select 'name1', from: 'article[category_id]' 
 
     click_on 'Submit'
     find('.submit-button').click

@@ -29,8 +29,6 @@ RSpec.feature "Edit a article", :type => :feature do
     another_article
     visit articles_path
 
-    binding.pry
-    
     find('a[href="/articles/2"]').click
     
     expect(page).not_to have_selector('.btn btn-primary me-2')
