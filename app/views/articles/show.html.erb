@@ -9,7 +9,9 @@
       <h3 class="mb-2"><%= @article.title %></h3>
       <p><%= @article.content %></p>
       <div class="d-flex">
+      <% if current_user.email === @article.user.email%>
         <%= link_to "Edit Article", edit_article_path(@article), class: "btn btn-primary me-2" %>
+      <% end %>  
           <% if current_user.admin? %>
             <%= button_to 'Delete', article_path(@article), method: :delete, class: "btn btn-outline-danger ms-2 button-delete" %>
           <% end %>
