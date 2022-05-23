@@ -44,17 +44,17 @@ class ArticlesController < ApplicationController
 
     def hobby
         articles_for_branch(params[:action])
-        @article = Article.where(category_id: 1).limit(10).order('created_at DESC')
+        @article_hobby = Article.where(category_id: 1).limit(10).order('created_at DESC')
     end
     
     def study
         articles_for_branch(params[:action])
-        @article = Article.where(category_id: 2).limit(10).order('created_at DESC')
+        @article_study = Article.where(category_id: 2).limit(10).order('created_at DESC')
     end
     
     def team
         articles_for_branch(params[:action])
-        @article = Article.where(category_id: 3).limit(10).order('created_at DESC')
+        @article_team = Article.where(category_id: 3).limit(10).order('created_at DESC')
     end
 
     private
