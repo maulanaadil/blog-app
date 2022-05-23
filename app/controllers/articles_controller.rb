@@ -4,7 +4,7 @@ class ArticlesController < ApplicationController
     before_action :check_for_cancel, :only => [:create, :update]
 
     def index
-        @articles = Article.limit(10).order('created_at DESC')
+        @articles = Article.paginate(page: params[:page]).limit(10).order('created_at DESC')
     end
 
     def show
@@ -43,28 +43,25 @@ class ArticlesController < ApplicationController
     end    
 
     def hobby
-        articles_for_branch(params[:action])
-        @article_hobby = Article.where(category_id: 1).limit(10).order('created_at DESC')
+        articles_for_branch(params[:action], 1)
     end
     
     def study
-        articles_for_branch(params[:action])
-        @article_study = Article.where(category_id: 2).limit(10).order('created_at DESC')
+        articles_for_branch(params[:action], 2)
     end
     
     def team
-        articles_for_branch(params[:action])
-        @article_team = Article.where(category_id: 3).limit(10).order('created_at DESC')
+        articles_for_branch(params[:action], 3)
     end
 
     private
-    def articles_for_branch(branch)
+    def articles_for_branch(branch, category_id)
         @categories = Category.where(branch: branch)
-        @articles = get_articles.paginate(page: params[:page])
+        @articles = Article.paginate(page: params[:page]).where(category_id: category_id).order('created_at DESC')
     end
 
     def get_articles
-        Article.limit(30)
+        Article.limit(10)
     end
 
     def article_params
@@ -80,6 +77,5 @@ class ArticlesController < ApplicationController
             redirect_to my_page_path
         end
     end
-    
     
 end    

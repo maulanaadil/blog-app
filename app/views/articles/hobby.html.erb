@@ -2,4 +2,5 @@
     <h1 class="fs-3">Categories Hobby</h1>
 </div>
 
-<%= render "article_branch", article: @article_hobby %>
+<%= render @articles %>
+<%= will_paginate @articles %>
