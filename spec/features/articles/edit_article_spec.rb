@@ -23,4 +23,8 @@ RSpec.feature "Edit a article", :type => :feature do
     expect(page).to have_selector('.article-title')
   end
 
+  scenario 'user creates a edit article that is not his own article', js: true do
+    
+  end
+
 end
