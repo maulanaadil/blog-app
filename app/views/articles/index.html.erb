@@ -1,8 +1,0 @@
-<div class="d-flex justify-content-center align-items-center">
-    <h1 class="fs-3">Articles Page</h1>
-</div>
-    <%= link_to "Create article", new_article_path, class: "btn btn-primary", id: "new-article-button" %>
-    <%= render @articles %>
-<div class="d-flex justify-content-center">
-    <%= will_paginate @clients, renderer: WillPaginate::ActionView::BootstrapLinkRenderer %>
-</div>
