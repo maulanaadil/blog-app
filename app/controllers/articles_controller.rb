@@ -43,21 +43,21 @@ class ArticlesController < ApplicationController
     end    
 
     def hobby
-        articles_for_branch(params[:action], 1)
+        articles_for_branch(params[:action])
     end
     
     def study
-        articles_for_branch(params[:action], 2)
+        articles_for_branch(params[:action])
     end
     
     def team
-        articles_for_branch(params[:action], 3)
+        articles_for_branch(params[:action])
     end
 
     private
-    def articles_for_branch(branch, category_id)
+    def articles_for_branch(branch)
         @categories = Category.where(branch: branch)
-        @articles = Article.paginate(page: params[:page]).where(category_id: category_id).order('created_at DESC')
+        @articles = Article.joins(:category).where(categories: { branch: branch }).paginate(page: params[:page]).order('created_at DESC')
     end
 
     def get_articles
