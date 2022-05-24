@@ -1,8 +1,30 @@
 <div class="d-flex justify-content-center align-items-center">
     <h1 class="fs-3">Articles Page</h1>
 </div>
+<div class="d-flex flex-column">
+    <%= form_with method: :get, local: true, data: { turbo: false } do |form| %>
+        <div class="input-group mb-5">
+            <div class="col-8" style="padding:0">
+                <%= form.text_field :search, placeholder: 'Search...', class: 'form-control', onkeydown: 'clickSubmit();'%>
+            </div>
+            <div class="col-3" style="padding:0">
+                 <%= form.collection_select :category_id, @categories.collect, :id, :name, {},{ class: "form-select", onchange:'clickSubmit()' } %>
+            </div>
+            <div class="col-1">
+                <%= form.button "Search",  class: "btn btn-primary", id:'search_submit' %>
+            </div>
+        </div>
+    <% end %>
+    
+</div>
     <%= link_to "Create article", new_article_path, class: "btn btn-primary", id: "new-article-button" %>
     <%= render @articles %>
 <div class="d-flex justify-content-center">
     <%= will_paginate @clients, renderer: WillPaginate::ActionView::BootstrapLinkRenderer %>
 </div>
+
+<script>
+    function clickSubmit() {
+        $("search_submit").trigger("click");
+    }
+</script>

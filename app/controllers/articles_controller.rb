@@ -5,6 +5,7 @@ class ArticlesController < ApplicationController
 
     def index
         @articles = Article.paginate(page: params[:page]).limit(10).order('created_at DESC')
+        @categories = Category.all
     end
 
     def show
@@ -53,6 +54,21 @@ class ArticlesController < ApplicationController
     def team
         articles_for_branch(params[:action], 3)
     end
+
+    def search
+    query = params[:search]
+
+    results = Article.where('title LIKE ?', "%#{query}%")
+    if params[:filter] == 'Arts'
+      @articles = results
+    else
+      # 'Dairy Free' -> 'Dairy_Free' -> 'dairy_free' -> :dairy_free
+      symbol = params[:filter].gsub(/ /, '_').downcase!.to_sym
+      # @products = results.where(:dairy_free => true)
+      @articles = results.where(symbol => true)
+    end
+  end
+    
 
     private
     def articles_for_branch(branch, category_id)
