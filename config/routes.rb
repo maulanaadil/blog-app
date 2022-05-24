@@ -8,6 +8,8 @@ Rails.application.routes.draw do
 
   get '/accounts/:id/edit', to: 'accounts#edit', as: 'user_edit_role'
 
+  get '/search', to: 'articles#search'
+
   devise_for :users,  controllers: {
     sessions: 'users/sessions',
     registrations: 'users/registrations'
