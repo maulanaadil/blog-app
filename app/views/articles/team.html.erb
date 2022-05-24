@@ -3,3 +3,6 @@
 </div>
 
 <%= render @articles %>
+<div class="d-flex justify-content-center">
+    <%= will_paginate @clients, renderer: WillPaginate::ActionView::BootstrapLinkRenderer %>
+</div>
