@@ -2,7 +2,8 @@
     <%= link_to "Back to articles", :back, class: "" %>
 </div>
 
-<div id="single-article-content">
+ <%= turbo_frame_tag "articles", data: { turbo_action: "replace" } do %>
+<div id="single-article-content" class="mt-3">
   <div class="row">
     <div class="card col-sm-offset-3 px-3 py-3">
       <div class="article-by mb-3">Posted by <%= @article.user.email %></div>
@@ -19,3 +20,4 @@
     </div>
   </div>
 </div>
+<% end %>
