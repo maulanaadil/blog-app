@@ -40,14 +40,4 @@ RSpec.describe "index", :type => :request do
         expect(response).to redirect_to(root_path)
     end
   end
-
-  context 'user search and filter articles' do
-      let(:article) { create(:article, user: user) }
-
-      it 'renders list of articles that have been search' do
-          get articles_path
-
-          fill_in "Field",	with: "sometext" 
-      end
-  end
 end
