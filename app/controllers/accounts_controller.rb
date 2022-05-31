@@ -3,7 +3,15 @@ class AccountsController < ApplicationController
   before_action :set_user, only: [ :show, :edit, :destroy, :update ]
   
   def index
-    @user = User.all
+    if user_signed_in?
+      if current_user.role != 'user'
+          @user = User.all
+      else
+        redirect_to root_path    
+      end
+    else
+        redirect_to new_user_session_path
+    end 
   end
 
   def show
@@ -18,6 +26,7 @@ class AccountsController < ApplicationController
       redirect_to accounts_path, notice: "User was successfully destroyed."
     elsif current_user.role == 'moderator'
       redirect_to accounts_path
+      redirect_to accounts_path, notice: "Just user as role admin who can delete user."
     else
       redirect_to root_path
     end
