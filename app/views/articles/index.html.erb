@@ -10,7 +10,7 @@
                 <%= form.text_field :search, placeholder: 'Search articles by title', class: 'form-control', onkeydown: 'clickSubmit();', id:"search"%>
             </div>
             <div class="col-3" style="padding:0">
-                 <%= form.collection_select :category_id, @categories.collect, :id, :name, {},{ class: "form-select", onchange:'clickSubmit()', id:"category"} %>
+                 <%= form.collection_select :category_id, @categories.collect, :id, :name, {:prompt => "Select Category"},{ class: "form-select", onchange:'clickSubmit()', id:"category"} %>
             </div>
         </div>
     <% end %>
