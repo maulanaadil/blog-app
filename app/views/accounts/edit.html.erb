@@ -1,18 +1,10 @@
-<% if user_signed_in? %>
-    <% if current_user.role != 'user' %>
-        <% if @user %>
-            <div class="jumbotron">
-                <%= button_to 'Back', accounts_path, method: :get, class:"btn btn-outline-primary my-3", type: 'button' %>
-                <h2 id="email" class="display-4">
-                    <%= @user.email %>
-                </h2>
+<% if @user %>
+    <div class="jumbotron">
+        <%= button_to 'Back', accounts_path, method: :get, class:"btn btn-outline-primary my-3", type: 'button' %>
+        <h2 id="email" class="display-4">
+            <%= @user.email %>
+        </h2>
 
-                <%= render 'form', user: @user %>
-            </div>
-        <% end %>
-    <% else %>
-        <% controller.redirect_to root_path %>
-    <% end %>
-<% else %>
-    <% controller.redirect_to new_user_session_path %>
+        <%= render 'form', user: @user %>
+    </div>
 <% end %>
