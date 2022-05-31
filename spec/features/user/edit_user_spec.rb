@@ -1,7 +1,7 @@
 require "rails_helper"
 require 'pry'
 
-RSpec.feature "Admin visit accounts page and edit user", :type => :feature do
+RSpec.feature "Admin sign in then try to visit accounts page and edit user", :type => :feature do
   let(:admin) { create(:user, role: 'admin') }
   let(:moderator) { create(:user, role: 'moderator') }
   let(:user) { create(:user) }
@@ -56,7 +56,7 @@ RSpec.feature "Admin visit accounts page and edit user", :type => :feature do
   end
 end
 
-RSpec.feature "Moderator visit accounts page and edit user", :type => :feature do
+RSpec.feature "Moderator sign in then try to visit accounts page and edit user", :type => :feature do
     let(:admin) { create(:user, role: 'admin') }
     let(:moderator) { create(:user, role: 'moderator') }
     let(:user) { create(:user) }
@@ -111,7 +111,7 @@ RSpec.feature "Moderator visit accounts page and edit user", :type => :feature d
       end
   end
 
-  RSpec.feature "User visit accounts page and edit user", :type => :feature do
+  RSpec.feature "User sign in then try to visit accounts page and edit user", :type => :feature do
     let(:user) { create(:user) }
     before(:each) { sign_in user }
 
@@ -124,4 +124,22 @@ RSpec.feature "Moderator visit accounts page and edit user", :type => :feature d
         expect(page).not_to have_selector('#button-edit', text: 'Edit')
         expect(page).not_to have_selector('#button-delete', text: 'Delete')
       end
+  end
+
+  RSpec.feature "Unsigned user try to visit accounts page and edit user without sign in", :type => :feature do
+    let(:user) { create(:user) }
+  
+    scenario "Unsigned user goes to a accounts page then try to edit another user", js: true do
+      user
+      visit accounts_path
+      
+      expect(page).to have_text('You must be signed in to do that.')
+      expect(page).to have_text('Sign In')
+      expect(page).to have_text('Email')
+      expect(page).to have_text('Password')
+  
+      expect(page).not_to have_selector('#email', text: user.email)
+      expect(page).not_to have_selector('#role', text: user.role)
+      expect(page).not_to have_selector('#button-edit', text: 'Edit')
+    end
   end
