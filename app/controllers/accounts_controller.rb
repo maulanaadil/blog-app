@@ -3,21 +3,23 @@ class AccountsController < ApplicationController
   before_action :set_user, only: [ :show, :edit, :destroy, :update ]
   
   def index
-    if user_signed_in?
-      if current_user.role != 'user'
-          @user = User.all
-      else
-        redirect_to root_path    
-      end
+    if current_user.role != 'user'
+        @user = User.all
     else
-        redirect_to new_user_session_path
-    end 
+      redirect_to root_path, notice: "Just user as role admin and moderator can access this page."    
+    end
   end
 
   def show
+    if current_user.role == 'user'
+      redirect_to root_path, notice: "Just user as role admin and moderator can access this page."    
+    end
   end
 
   def edit
+    if current_user.role == 'user'
+      redirect_to root_path, notice: "Just user as role admin and moderator can access this page."    
+    end
   end
 
   def destroy 
@@ -25,10 +27,9 @@ class AccountsController < ApplicationController
       @user.destroy
       redirect_to accounts_path, notice: "User was successfully destroyed."
     elsif current_user.role == 'moderator'
-      redirect_to accounts_path
       redirect_to accounts_path, notice: "Just user as role admin who can delete user."
     else
-      redirect_to root_path
+      redirect_to root_path, notice: "Just user as role admin who can delete user."
     end
   end
 
@@ -37,7 +38,7 @@ class AccountsController < ApplicationController
       if @user.update(user_params)
         redirect_to @user, notice: "User was successfully updated."
       else
-        render :edit
+        render :edit, notice: "Nothing updated! Only user as role admin and moderator can update the user."
       end
     end
   end

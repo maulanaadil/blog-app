@@ -1,8 +1,8 @@
 <div class="d-flex justify-content-center align-items-center">
     <div>
-        <h1 class="fs-3">Homepage</h1>
+        <h1 class="fs-3"><%= t('.title') %></h1>
         <% if current_user %>
-                <p class="fs-4">Hello kamu adalah <%= current_user.role %> </p> 
+                <p class="fs-4"><%= t('.greetings') %> <%= current_user.role %> </p> 
                 <%= render partial: "components/category" %>
         <% end %>
     </div>
