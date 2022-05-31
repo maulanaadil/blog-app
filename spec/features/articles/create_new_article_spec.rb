@@ -1,6 +1,6 @@
 require "rails_helper"
 
-RSpec.feature "Create a new article", :type => :feature do
+RSpec.feature "User sign in then try to create a new article", :type => :feature do
   let(:user) { create(:user) }
   before(:each) { 
     sign_in user
@@ -19,5 +19,22 @@ RSpec.feature "Create a new article", :type => :feature do
 
     expect(page).to have_selector('.article-title', text: 'a' * 20)
   end
+end
 
+RSpec.feature "Unsigned user try to create a new article", :type => :feature do
+  let(:user) { create(:user) }
+  before(:each) { 
+    create(:category)
+  }
+
+  scenario 'Unsigned user creates a new article', js: true do
+    visit articles_path
+
+    expect(page).to have_text('You must be signed in to do that.')
+    expect(page).to have_text('Sign In')
+    expect(page).to have_text('Email')
+    expect(page).to have_text('Password')
+  
+    expect(page).not_to have_selector('#new-article-button')
+  end
 end
