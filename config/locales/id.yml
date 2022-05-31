@@ -29,8 +29,8 @@
 # To learn more, please read the Rails Internationalization guide
 # available at https://guides.rubyonrails.org/i18n.html.
 
-en:
+id:
   home:
     index:
-      title: 'Homepage'
-      greetings: 'Hello, your role is '
+      title: 'Halaman Utama'
+      greetings: 'Halo, role kamu adalah '
