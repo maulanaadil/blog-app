@@ -5,7 +5,11 @@
 
   <div class="field mb-3">
     <%= f.label :email, class:"form-label" %><br />
-    <%= f.email_field :email, autofocus: true, autocomplete: "email", class: "form-control" %>
+    <%= f.email_field :email, 
+          autofocus: true, 
+          autocomplete: "email", 
+          class: "form-control", 
+          placeholder: t('.i_placeholder_email') %>
   </div>
 
   <div class="field mb-3">
@@ -13,17 +17,23 @@
     <% if @minimum_password_length %>
     <em>(<%= @minimum_password_length %> characters minimum)</em>
     <% end %><br />
-    <%= f.password_field :password, autocomplete: "new-password", class: "form-control" %>
+    <%= f.password_field :password, 
+          autocomplete: "new-password", 
+          class: "form-control", 
+          placeholder: t('.i_placeholder_password') %>
   </div>
 
   <div class="field mb-2">
     <%= f.label :password_confirmation, class:"form-label" %><br />
-    <%= f.password_field :password_confirmation, autocomplete: "new-password", class: "form-control" %>
+    <%= f.password_field :password_confirmation, 
+          autocomplete: "new-password", 
+          class: "form-control", 
+          placeholder: t('.i_placeholder_password_confirmation') %>
   </div>
 
   <div class="form-text mb-3">
-    Already have account? Please
-    <%= link_to "Login",  new_user_session_path, class:"text-decoration-none" %>
+    <%= t('.txt_have_already_account')%>
+    <%= link_to "Sign in",  new_user_session_path, class:"text-decoration-none" %>
   </div>
 
   <div class="actions mb-5">

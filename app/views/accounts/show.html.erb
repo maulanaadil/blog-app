@@ -1,5 +1,5 @@
 <% if @user %>
-    <%= button_to 'Back', accounts_path, method: :get, class:"btn btn-outline-primary my-3" %>
+    <%= button_to t('.b_back'), accounts_path, method: :get, class:"btn btn-outline-primary my-3" %>
     <div class="jumbotron d-flex flex-row align-items-center justify-content-between">
         <div>
             <h2 id="email" class="display-4"><%= @user.email %></h2>
