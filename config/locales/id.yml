@@ -34,3 +34,85 @@ id:
     index:
       title: 'Halaman Utama'
       greetings: 'Halo, role kamu adalah '
+
+    category:
+      txt_title_category_hobby: 'Kategori hobi'
+      txt_title_category_study: 'Kategori belajar'
+      txt_title_category_team: 'Kategori tim'
+      b_more_info: 'Info lebih lanjut'
+
+  accounts:
+    index:
+      title: 'Halaman Akun'
+      t_email: 'Email'
+      t_role: 'Peran'
+      t_created_at: 'Dibuat pada'
+      t_updated_at: 'Diperbarui pada'
+
+    show:
+      b_back: 'Kembali'
+
+    edit:
+      b_back: 'Kembali'
+
+  articles:
+    index:
+      title: 'Halaman Artikel'
+      i_article: 'Cari artikel berdasarkan judul'
+      b_create: 'Buat artikel'
+
+    new:
+      title: 'Halaman buat artikel'
+
+    show:
+      txt_article_by: 'Diposting oleh'
+      b_back: 'Kembali ke artikel'
+      b_edit: 'Ubah artikel'
+      b_delete: 'Hapus'
+
+    edit:
+      title: 'Halaman ubah artikel'
+
+    study:
+      title: 'Halaman kategori belajar'
+
+    hobby:
+      title: 'Halaman kategori hobi'
+
+    team:
+      title: 'Halaman kategori tim'
+
+    form:
+      i_placeholder_title: 'E.g Perang dunia 3 adalah kiamat'
+      i_placeholder_content: 'Jelaskan apa yang Anda cari. Misalnya. minat tertentu, tingkat keahlian, dll.'
+      b_back: 'Kembali'
+      b_submit: 'Submit'
+      b_reset: 'Reset Form'
+
+    article:
+      txt_category: 'Kategori: '
+      txt_author: 'Artikel oleh'
+      b_read_more: 'Baca lebih lanjut'
+
+  devise:
+    sessions:
+      new:
+        i_placeholder_email: 'Masukan email anda'
+        i_placeholder_password: 'Masukan password anda'
+        txt_have_not_account: 'Jika anda tidak mempunyai akun. Silahkan '
+
+    registrations:
+      new:
+        i_placeholder_email: 'Masukan email anda'
+        i_placeholder_password: 'Masukan password anda'
+        i_placeholder_password_confirmation: 'Masukan konfirmasi password anda'
+        txt_have_already_account: 'Sudah punya akun?. Silahkan'
+
+      edit:
+        txt_cancel_account: 'Batalkan akun saya'
+        txt_label_password: 'biarkan kosong jika tidak ingin diubah'
+        txt_char_min: 'minimal karakter'
+        i_placeholder_email: 'Masukan email anda'
+        b_back: 'Kembali'
+        i_placeholder_new_password: 'Masukan password baru anda'
+        i_placeholder_current_password: 'Masukan password anda saat ini'

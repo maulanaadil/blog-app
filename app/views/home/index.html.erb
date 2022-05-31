@@ -3,7 +3,8 @@
         <h1 class="fs-3"><%= t('.title') %></h1>
         <% if current_user %>
                 <p class="fs-4"><%= t('.greetings') %> <%= current_user.role %> </p> 
-                <%= render partial: "components/category" %>
+                <%= render "category" %>
+
         <% end %>
     </div>
 </div>
