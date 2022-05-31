@@ -4,7 +4,10 @@ class ArticlesController < ApplicationController
     before_action :check_for_cancel, :only => [:create, :update]
 
     def index
-        @articles = Article.paginate(page: params[:page]).limit(10).order('created_at DESC')
+        query = params[:search]
+        query_category = params[:category_id]
+        @articles = Article.where("title LIKE ?", "%#{query}%").or(Article.where(category_id: "#{query_category}")).paginate(page: params[:page]).limit(10).order('created_at DESC').all
+        @categories = Category.all
     end
 
     def show
@@ -53,6 +56,7 @@ class ArticlesController < ApplicationController
     def team
         articles_for_branch(params[:action])
     end
+    
 
     private
     def articles_for_branch(branch)
