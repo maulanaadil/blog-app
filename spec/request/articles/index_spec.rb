@@ -1,4 +1,4 @@
-require 'rails-helper'
+require 'spec_helper'
 include Warden::Test::Helpers
 
 RSpec.describe "index", :type => :request do
