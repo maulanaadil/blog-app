@@ -6,7 +6,8 @@ class ArticlesController < ApplicationController
     def index
         query = params[:search]
         query_category = params[:category_id]
-        @articles = Article.where("title LIKE ?", "%#{query}%").or(Article.where(category_id: "#{query_category}")).paginate(page: params[:page]).limit(10).order('created_at DESC').all
+        article_limit = 10
+        @articles = Article.where("title LIKE ?", "%#{query}%").or(Article.where(category_id: "#{query_category}")).paginate(page: params[:page]).limit(article_limit).order('created_at DESC').all
         @categories = Category.all.order('created_at DESC')
     end
 
@@ -22,9 +23,9 @@ class ArticlesController < ApplicationController
      def create
         @article = Article.new(article_params)
         if @article.save
-            redirect_to articles_path, notice: "Tweet was scheduled successfully"
+            redirect_to articles_path, notice: t('.notice_success')
         else
-            render :new 
+            render :new, notice: t('.notice_failure') 
         end  
     end
 
@@ -34,15 +35,18 @@ class ArticlesController < ApplicationController
 
     def update
         if @article.update(article_params)
-            redirect_to articles_path, notice: "Article was updated successfully"
+            redirect_to articles_path, notice: t('.notice_success')
         else
-            render :edit
+            render :edit, notice: t('.notice_failure') 
         end
     end
 
     def destroy
-        @article.destroy
-        redirect_to articles_path, alert: "Article was deleted"
+        if @article.destroy
+            redirect_to articles_path, notice: t('.notice_success')
+        else
+            render :edit, notice: t('.notice_failure')
+        end
     end    
 
     def hobby

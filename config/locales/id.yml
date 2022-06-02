@@ -48,12 +48,26 @@ id:
       t_role: 'Peran'
       t_created_at: 'Dibuat pada'
       t_updated_at: 'Diperbarui pada'
+      notice: 'Hanya pengguna sebagai admin peran yang dapat menghapus pengguna.'
 
     show:
       b_back: 'Kembali'
+      notice: 'Hanya pengguna sebagai admin peran yang dapat menghapus pengguna.'
+      notice_undifined: 'Kesalahan yang tidak ditentukan.'
 
     edit:
       b_back: 'Kembali'
+      notice: 'Hanya pengguna sebagai admin peran dan moderator yang dapat mengakses halaman ini.'
+      notice_undifined: 'Kesalahan yang tidak ditentukan.'
+
+    update:
+      notice_success: 'Pengguna berhasil diperbarui.'
+      notice_failure: 'Tidak ada yang diperbarui! Hanya pengguna sebagai admin peran dan moderator yang dapat memperbarui pengguna.'
+
+    destroy:
+      notice_admin: 'Pengguna berhasil dihancurkan.'
+      notice_moderator: 'Hanya pengguna sebagai admin peran yang dapat menghapus pengguna.'
+      notice_error: 'Hanya pengguna sebagai admin peran yang dapat menghapus pengguna.'
 
   articles:
     index:
@@ -64,6 +78,10 @@ id:
     new:
       title: 'Halaman buat artikel'
 
+    create:
+      notice_success: 'Artikel berhasil dibuat'
+      notice_failure: 'Ada yang salah saat membuat artikel'
+
     show:
       txt_article_by: 'Diposting oleh'
       b_back: 'Kembali ke artikel'
@@ -72,6 +90,14 @@ id:
 
     edit:
       title: 'Halaman ubah artikel'
+
+    update:
+      notice_success: 'Artikel berhasil diperbarui'
+      notice_failure: 'Ada yang salah saat memperbarui artikel'
+
+    destroy:
+      notice_success: 'Artikel berhasil dihapus'
+      notice_failure: 'Ada yang salah saat menghapus artikel'
 
     study:
       title: 'Halaman kategori belajar'

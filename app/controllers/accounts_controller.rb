@@ -6,39 +6,46 @@ class AccountsController < ApplicationController
     if current_user.role != 'user'
         @user = User.all
     else
-      redirect_to root_path, notice: "Just user as role admin and moderator can access this page."    
+      redirect_to root_path, notice: t('.notice')    
     end
   end
 
   def show
-    if current_user.role == 'user'
-      redirect_to root_path, notice: "Just user as role admin and moderator can access this page."    
+    case current_user
+    when 'user'
+      redirect_to root_path, notice: t('.notice') 
+    else
+      redirect_to root_path, notice: t('.notice_undifined') 
     end
   end
 
   def edit
-    if current_user.role == 'user'
-      redirect_to root_path, notice: "Just user as role admin and moderator can access this page."    
+    case current_user
+    when 'user'
+      redirect_to root_path, notice: t('.notice') 
+    else
+      redirect_to root_path, notice: t('.notice_undifined') 
     end
   end
 
   def destroy 
-    if current_user.role == 'admin'
+    case current_user
+    when 'admin'
       @user.destroy
-      redirect_to accounts_path, notice: "User was successfully destroyed."
-    elsif current_user.role == 'moderator'
-      redirect_to accounts_path, notice: "Just user as role admin who can delete user."
+      redirect_to accounts_path, notice: t('.notice_admin') 
+    when 'moderator'
+      redirect_to accounts_path, notice: t('.notice_moderator')
     else
-      redirect_to root_path, notice: "Just user as role admin who can delete user."
+      redirect_to root_path, notice: t('.notice_error')
     end
   end
 
   def update
     if current_user.role != 'user'
       if @user.update(user_params)
-        redirect_to @user, notice: "User was successfully updated."
+        redirect_to @user, notice: t('.notice_success')
       else
-        render :edit, notice: "Nothing updated! Only user as role admin and moderator can update the user."
+        render :edit, notice: t('.notice_failure')
       end
     end
   end

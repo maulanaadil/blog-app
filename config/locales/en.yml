@@ -47,12 +47,26 @@ en:
       t_role: 'Role'
       t_created_at: 'Created At'
       t_updated_at: 'Updated At'
+      notice: 'Just user as role admin who can delete user.'
 
     show:
       b_back: 'Back'
+      notice: 'Just user as role admin who can delete user.'
+      notice_undifined: 'Undefined error.'
 
     edit:
       b_back: 'Back'
+      notice: 'Just user as role admin and moderator can access this page.'
+      notice_undifined: 'Undefined error.'
+
+    update:
+      notice_success: 'User was successfully updated.'
+      notice_failure: 'Nothing updated! Only user as role admin and moderator can update the user.'
+
+    destroy:
+      notice_admin: 'User was successfully destroyed.'
+      notice_moderator: 'Just user as role admin who can delete user.'
+      notice_error: 'Just user as role admin who can delete user.'
 
   articles:
     index:
@@ -63,6 +77,10 @@ en:
     new:
       title: 'Create new article page'
 
+    create:
+      notice_success: 'Article was created successfully'
+      notice_failure: 'Something wrong while created article'
+
     show:
       txt_article_by: 'Posted by'
       b_back: 'Back to articles'
@@ -71,6 +89,14 @@ en:
 
     edit:
       title: 'Edit article page'
+
+    update:
+      notice_success: 'Article was updated successfully'
+      notice_failure: 'Something wrong while updated article'
+
+    destroy:
+      notice_success: 'Article was deleted successfully'
+      notice_failure: 'Something wrong while deleted article'
 
     study:
       title: 'Categories study page'
