@@ -18,6 +18,7 @@ module BlogApp
     #
     # config.time_zone = "Central Time (US & Canada)"
     config.i18n.available_locales = [:en, :id]
+    config.i18n.default_locale = :id
 
     # config.eager_load_paths << Rails.root.join("extras")
   end
