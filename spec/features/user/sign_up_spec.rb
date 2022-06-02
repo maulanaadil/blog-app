@@ -33,7 +33,7 @@ RSpec.feature "Sign up", :type => :feature do
     visit root_path
   
     find('nav a', text: 'Sign Up').click
-    fill_in 'user[email]', with: another_user
+    fill_in 'user[email]', with: another_user.email
     fill_in 'user[password]', with: user.password
     fill_in 'user[password_confirmation]', with: user.password_confirmation
 
