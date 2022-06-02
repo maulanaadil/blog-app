@@ -29,8 +29,9 @@ RSpec.feature "Sign up", :type => :feature do
     expect(page).to have_text('Password confirmation doesn\'t match Password')
   end
 
-  scenario 'user navigates to sign up page and try to input email that already been taken', js: true do
+  scenario 'user navigates to sign up page and try to input email that already been taken', js: true  do
     visit root_path
+  
     find('nav a', text: 'Sign Up').click
     fill_in 'user[email]', with: "mock@email.com"
     fill_in 'user[password]', with: user.password

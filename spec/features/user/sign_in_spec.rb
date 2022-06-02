@@ -29,7 +29,7 @@ RSpec.feature "Login", :type => :feature do
     expect(page).to have_text('Password')
   end
 
-  scenario 'user navigates to the login page and try input a wrong email', js: true do
+  scenario 'user navigates to the login page and try input a wrong email', js: true, :altering_database => true do
     user
     visit new_user_session_path
 
@@ -43,11 +43,12 @@ RSpec.feature "Login", :type => :feature do
     expect(page).to have_text('Password')
   end
 
-  scenario 'user navigates to the login page and try to click sign up button', js: true do
+  scenario 'user navigates to the login page and try to click sign up button', js: true, :altering_database => true do
     user
     visit new_user_session_path
 
-    find('a[href="/users/sign_up"]').click
+    
+    find('#link-to-sign-up').click
     
     expect(page).to have_text('Sign up')
     expect(page).to have_text('Email')
