@@ -1,8 +1,5 @@
 Rails.application.routes.draw do
 
-  scope "(:locale)", locale: /#{I18n.available_locales.join("|")}/ do
-    # your routes here...
-  
   get '/accounts', to: "accounts#index"
   
   get '/accounts/:id', to: 'accounts#show',  as: 'user'
@@ -32,5 +29,4 @@ Rails.application.routes.draw do
   root to: "home#index"
   # Defines the root path route ("/")
   # root "articles#index"
-  end
 end
