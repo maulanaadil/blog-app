@@ -1,6 +1,6 @@
 require "rails_helper"
 
-RSpec.feature "Edit a article", :type => :feature do
+RSpec.feature "Signed user edit a article", :type => :feature do
   let(:user) { create(:user) }
   let(:another_user) { create(:user) }
   let(:article) { create(:article, user: user) }
@@ -31,6 +31,21 @@ RSpec.feature "Edit a article", :type => :feature do
 
     find('a[href="/articles/2"]').click
     
+    expect(page).not_to have_selector('.btn btn-primary me-2')
+  end
+end
+
+RSpec.feature "Unsigned user try to edit an article", :type => :feature do
+  let(:user) { create(:user) }
+
+  scenario 'Unsigned user try to visit article path and cannot edit any article', js: true do
+    visit articles_path
+
+    expect(page).to have_text('You must be signed in to do that.')
+    expect(page).to have_text('Sign In')
+    expect(page).to have_text('Email')
+    expect(page).to have_text('Password')
+  
     expect(page).not_to have_selector('.btn btn-primary me-2')
   end
 end

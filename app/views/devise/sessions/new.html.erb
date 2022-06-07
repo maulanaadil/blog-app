@@ -6,13 +6,13 @@
  <%= devise_error_messages! %>
   <div class="mb-3">
     <%= f.label :email, class: "form-label" %>
-    <%= f.email_field :email, autofocus: true, autocomplete: "email", class: "form-control", placeholder: "Input your email" %>
+    <%= f.email_field :email, autofocus: true, autocomplete: "email", class: "form-control", placeholder: t('.i_placeholder_email') %>
   </div>
 
   <div class="mb-3">
     <%= f.label :password, class: "form-label" %>
-    <%= f.password_field :password, autocomplete: "current-password", class: "form-control", placeholder: "Input your password" %>
-    <div class="form-text">If you haven't any account. Please <%= link_to "Sign up", new_registration_path(resource_name) %><br /></div>
+    <%= f.password_field :password, autocomplete: "current-password", class: "form-control", placeholder: t('.i_placeholder_password') %>
+    <div class="form-text"><%= t('.txt_have_not_account')%> <%= link_to "Sign up", new_registration_path(resource_name), id: "link-to-sign-up" %><br /></div>
   </div>
 
   <% if devise_mapping.rememberable? %>

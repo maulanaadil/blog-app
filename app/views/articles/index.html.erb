@@ -1,8 +1,27 @@
-<div class="d-flex justify-content-center align-items-center">
-    <h1 class="fs-3">Articles Page</h1>
-</div>
-    <%= link_to "Create article", new_article_path, class: "btn btn-primary", id: "new-article-button" %>
-    <%= render @articles %>
-<div class="d-flex justify-content-center">
-    <%= will_paginate @clients, renderer: WillPaginate::ActionView::BootstrapLinkRenderer %>
-</div>
+<%= turbo_frame_tag "articles", data: { turbo_action: "replace" }, lazy: true do %>
+    <div class="d-flex justify-content-center align-items-center">
+        <h1 class="fs-3"><%= t('.title') %></h1>
+    </div>
+    <%= form_with url: articles_path, method: :get, local: true, data: { turbo: false, turbo_frame: "search_articles", turbo_action: "advance" } do |form| %>
+        <div class="input-group my-5">
+            <div class="col-9" style="padding:0">
+                <%= form.text_field :search, placeholder: t('.i_article'), class: 'form-control', onkeydown: 'clickSubmit();', id:"search"%>
+            </div>
+            <div class="col-3" style="padding:0">
+                 <%= form.collection_select :category_id, @categories.collect, :id, :name, {:prompt => "Select Category"},{ class: "form-select", onchange:'clickSubmit()', id:"category"} %>
+            </div>
+        </div>
+    <% end %>
+    <%= link_to t('.b_create'), new_article_path, class: "btn btn-primary", id: "new-article-button" %>
+         <%= render @articles %>
+         <div class="d-flex justify-content-center">
+            <%= will_paginate @clients, renderer: WillPaginate::ActionView::BootstrapLinkRenderer %>
+        </div>
+<% end %>
+
+
+<script>
+    function clickSubmit() {
+        $("search_submit").trigger("click");
+    }
+</script>

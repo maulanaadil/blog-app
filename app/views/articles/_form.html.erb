@@ -1,4 +1,4 @@
-<%= link_to "Back", articles_path, class: "btn btn-outline-primary my-3" %>
+<%= link_to t('.b_back'), articles_path, class: "btn btn-outline-primary my-3" %>
 <%= form_with model: article, local: true, data: { turbo: false } do |form| %>
     <%= render "components/form-errors", form: form %>
     <div class="mb-3">
@@ -7,7 +7,7 @@
                     maxlength: 100, 
                      minlength: 5,
                     required: true, 
-                    placeholder: 'E.g World war 3 is doom', 
+                    placeholder: t('.i_placeholder_title'), 
                     class: 'form-control' %>
     </div>
 
@@ -18,18 +18,18 @@
                   required: true, 
                   minlength: 20,
                   maxlength: 1000,
-                  placeholder: 'Describe what you are looking for. E.g. specific interests, expertise level, etc.', 
+                  placeholder: t('.i_placeholder_content'), 
                   class: 'form-control' %>
     </div>
 
     <div class="mb-3">
         <%= form.label :category_id %>
-        <%= form.collection_select :category_id, Category.order(:name), :id, :name, {},{ class: "form-control mb-2" } %>
+        <%= form.collection_select :category_id, Category.order(:name), :id, :name, {prompt: "Select Category"},{ class: "form-control mb-2" } %>
     </div>
 
-    <%= form.button "Submit", method: :patch, class: "btn btn-primary submit-button" %>
+    <%= form.button t('.b_submit'), method: :patch, class: "btn btn-primary submit-button" %>
 
     <% if form.object.persisted? %>
-        <%= link_to "Reset Form", new_article_path, form: {data: {turbo_confirm: 'Are you sure?'}}, class: "btn btn-outline-danger" %>
+        <%= link_to t('.b_reset'), new_article_path, form: {data: {turbo_confirm: 'Are you sure?'}}, class: "btn btn-outline-danger" %>
     <% end %>
 <% end %>

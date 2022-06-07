@@ -30,4 +30,114 @@
 # available at https://guides.rubyonrails.org/i18n.html.
 
 en:
-  hello: "Hello world"
+  home:
+    index:
+      title: 'Homepage'
+      greetings: 'Hello, your role is '
+    category:
+      txt_title_category_hobby: 'Category hobby'
+      txt_title_category_study: 'Category study'
+      txt_title_category_team: 'Category team'
+      b_more_info: 'More info'
+
+  accounts:
+    index:
+      title: 'Accounts Page'
+      t_email: 'Email'
+      t_role: 'Role'
+      t_created_at: 'Created At'
+      t_updated_at: 'Updated At'
+      notice: 'Just user as role admin who can delete user.'
+
+    show:
+      b_back: 'Back'
+      notice: 'Just user as role admin who can delete user.'
+      notice_undifined: 'Undefined error.'
+
+    edit:
+      b_back: 'Back'
+      notice: 'Just user as role admin and moderator can access this page.'
+      notice_undifined: 'Undefined error.'
+
+    update:
+      notice_success: 'User was successfully updated.'
+      notice_failure: 'Nothing updated! Only user as role admin and moderator can update the user.'
+
+    destroy:
+      notice_admin: 'User was successfully destroyed.'
+      notice_moderator: 'Just user as role admin who can delete user.'
+      notice_error: 'Just user as role admin who can delete user.'
+
+  articles:
+    index:
+      title: 'Articles Page'
+      i_article: 'Search articles by title'
+      b_create: 'Create article'
+
+    new:
+      title: 'Create new article page'
+
+    create:
+      notice_success: 'Article was created successfully'
+      notice_failure: 'Something wrong while created article'
+
+    show:
+      txt_article_by: 'Posted by'
+      b_back: 'Back to articles'
+      b_edit: 'Edit article'
+      b_delete: 'Delete'
+
+    edit:
+      title: 'Edit article page'
+
+    update:
+      notice_success: 'Article was updated successfully'
+      notice_failure: 'Something wrong while updated article'
+
+    destroy:
+      notice_success: 'Article was deleted successfully'
+      notice_failure: 'Something wrong while deleted article'
+
+    study:
+      title: 'Categories study page'
+
+    hobby:
+      title: 'Categories hobby page'
+
+    team:
+      title: 'Categories team page'
+
+    form:
+      i_placeholder_title: 'E.g World war 3 is doom'
+      i_placeholder_content: 'Describe what you are looking for. E.g. specific interests, expertise level, etc.'
+      b_back: 'Back'
+      b_submit: 'Submit'
+      b_reset: 'Reset Form'
+
+    article:
+      txt_category: 'Category: '
+      txt_author: 'Articles by'
+      b_read_more: 'Read more'
+
+  devise:
+    sessions:
+      new:
+        i_placeholder_email: 'Input your email'
+        i_placeholder_password: 'Input your password'
+        txt_have_not_account: "If you haven't any account. Please"
+
+    registrations:
+      new:
+        i_placeholder_email: 'Input your email'
+        i_placeholder_password: 'Input your password'
+        i_placeholder_password_confirmation: 'Input your password confirmation'
+        txt_have_already_account: 'Already have account? Please'
+
+      edit:
+        txt_cancel_account: 'Cancel my account'
+        txt_label_password: "leave blank if you don't want to change it"
+        txt_char_min: 'characters minimum'
+        i_placeholder_email: 'Input your email'
+        b_back: 'Back'
+        i_placeholder_new_password: 'Input your new password'
+        i_placeholder_current_password: 'Input your current password'

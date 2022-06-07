@@ -1,15 +1,18 @@
 <div class="card mb-4 mt-3 shadow-sm bg-body rounded px-3 py-3">    
     <div class="card-body">
+            <div>
+                <p id="article-category" class="h6 text-muted"><%= t('.txt_category') %> <%= article.category.name %></p>
+            </div>
             <blockquote class="blockquote mb-4">
-                <q class="fs-4 mb-4 article-title"><%= article.title %></q>
+                <q id="article-title" class="fs-4 mb-4 article-title"><%= article.title %></q>
             </blockquote>
             <figcaption class="blockquote-footer d-flex align-items-center">
-                <p class="my-0">Articles by <%= article.user.email %></p>
+                <p class="my-0"><%= t('.txt_author') %> <%= article.user.email %></p>
             </figcaption>
-            <div class="article-content">
-                <p><%= article.content %></p>
+            <div class="article-content" id="article-content">
+                <p><%= article.content %></p>   
                 <div class="read-more">
-                    <%= link_to "Read More", article_path(article.id) %>
+                    <%= link_to t('.b_read_more'), article_path(article.id) %>
                 </div>
             </div>
     </div>

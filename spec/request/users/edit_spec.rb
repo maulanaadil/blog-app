@@ -12,8 +12,8 @@ RSpec.describe "edit", :type => :request do
   end
 
   context 'signed in user admin' do
-    admin = FactoryGirl.create(:user, role: 'admin')
     let(:user) { create(:user, role: 'user') }
+    let(:admin) { create(:user, role: 'admin') }
     before(:each) { login_as admin }
     
     it 'update a details accounts page' do
@@ -23,8 +23,8 @@ RSpec.describe "edit", :type => :request do
   end
 
   context 'signed in user moderator' do
-    moderator = FactoryGirl.create(:user, role: 'moderator')
     let(:user) { create(:user, role: 'user') }
+    let(:moderator) { create(:user, role: 'moderator') }
     before(:each) { login_as moderator }
     
     it 'update a details accounts page' do
@@ -34,7 +34,7 @@ RSpec.describe "edit", :type => :request do
   end
 
   context 'signed in user user' do
-    user_sign = FactoryGirl.create(:user, role: 'user')
+    let(:user_sign) { create(:user, role: 'user') }
     let(:user) { create(:user, role: 'user') }
     before(:each) { login_as user_sign }
     

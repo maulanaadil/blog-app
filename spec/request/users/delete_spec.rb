@@ -12,8 +12,8 @@ RSpec.describe "delete", :type => :request do
   end
 
   context 'signed in user admin' do
-    admin = FactoryGirl.create(:user, role: 'admin')
     let(:user) { create(:user, role: 'user') }
+    let(:admin) { create(:user, role: 'admin') }
     before(:each) { login_as admin }
     
     it 'admin try to delete user' do
@@ -24,7 +24,7 @@ RSpec.describe "delete", :type => :request do
   end
 
   context 'signed in user moderator' do
-    moderator = FactoryGirl.create(:user, role: 'moderator')
+    let(:moderator) { create(:user, role: 'moderator') }
     let(:user) { create(:user, role: 'user') }
     before(:each) { login_as moderator }
     

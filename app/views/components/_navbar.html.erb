@@ -12,15 +12,13 @@
         <li class="nav-item">
           <%= link_to "Articles", articles_path, class: "nav-link", id: 'articles' %>
         </li>
-         <% if current_user %>
-          <% if current_user.admin? || current_user.moderator? %>
+          <% if current_user && (current_user.admin? || current_user.moderator?) %>
               <li class="nav-item" >
                 <%= link_to "Accounts", accounts_path, class: "nav-link", id: 'accounts' %>
               </li>
               <li class="nav-item">
                 <a class="nav-link" href="#", id = 'settings'>Settings</a>
               </li>
-          <% end %>
         <% end %>  
       </ul>
       <% if current_user %>

@@ -4,7 +4,11 @@ class ArticlesController < ApplicationController
     before_action :check_for_cancel, :only => [:create, :update]
 
     def index
-        @articles = Article.paginate(page: params[:page]).limit(10).order('created_at DESC')
+        query = params[:search]
+        query_category = params[:category_id]
+        article_limit = 10
+        @articles = Article.where("title LIKE ?", "%#{query}%").or(Article.where(category_id: "#{query_category}")).paginate(page: params[:page]).limit(article_limit).order('created_at DESC').all
+        @categories = Category.all.order('created_at DESC')
     end
 
     def show
@@ -19,9 +23,9 @@ class ArticlesController < ApplicationController
      def create
         @article = Article.new(article_params)
         if @article.save
-            redirect_to articles_path, notice: "Tweet was scheduled successfully"
+            redirect_to articles_path, notice: t('.notice_success')
         else
-            render :new 
+            render :new, notice: t('.notice_failure') 
         end  
     end
 
@@ -31,33 +35,37 @@ class ArticlesController < ApplicationController
 
     def update
         if @article.update(article_params)
-            redirect_to articles_path, notice: "Article was updated successfully"
+            redirect_to articles_path, notice: t('.notice_success')
         else
-            :edit
+            render :edit, notice: t('.notice_failure') 
         end
     end
 
     def destroy
-        @article.destroy
-        redirect_to articles_path, alert: "Article was deleted"
+        if @article.destroy
+            redirect_to articles_path, notice: t('.notice_success')
+        else
+            render :edit, notice: t('.notice_failure')
+        end
     end    
 
     def hobby
-        articles_for_branch(params[:action], 1)
+        articles_for_branch(params[:action])
     end
     
     def study
-        articles_for_branch(params[:action], 2)
+        articles_for_branch(params[:action])
     end
     
     def team
-        articles_for_branch(params[:action], 3)
+        articles_for_branch(params[:action])
     end
+    
 
     private
-    def articles_for_branch(branch, category_id)
+    def articles_for_branch(branch)
         @categories = Category.where(branch: branch)
-        @articles = Article.paginate(page: params[:page]).where(category_id: category_id).order('created_at DESC')
+        @articles = Article.joins(:category).where(categories: { branch: branch }).paginate(page: params[:page]).order('created_at DESC')
     end
 
     def get_articles
