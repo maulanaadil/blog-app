@@ -126,6 +126,8 @@ id:
         i_placeholder_email: 'Masukan email anda'
         i_placeholder_password: 'Masukan password anda'
         txt_have_not_account: 'Jika anda tidak mempunyai akun. Silahkan '
+      user:
+        signed_in: 'Selamat datang kembali'  
 
     registrations:
       new:

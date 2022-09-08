@@ -2,6 +2,8 @@ class ApplicationController < ActionController::Base
     before_action :set_current_user
     before_action :set_locale
 
+    skip_before_action :verify_authenticity_token
+
     around_action :switch_locale
 
     def set_current_user

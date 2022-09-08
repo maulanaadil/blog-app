@@ -125,6 +125,8 @@ en:
         i_placeholder_email: 'Input your email'
         i_placeholder_password: 'Input your password'
         txt_have_not_account: "If you haven't any account. Please"
+      user:
+        signed_in: 'Welcome back!'  
 
     registrations:
       new:
